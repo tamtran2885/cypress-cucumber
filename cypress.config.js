@@ -20,12 +20,12 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-  // defaultCommandTimeout: 10000,
   pageLoadTimeout: 10000,
   e2e: {
     setupNodeEvents,
     baseUrl: "https://stately-caramel-5cb3b8.netlify.app",
     chromeWebSecurity: false,
     specPattern: "cypress/e2e/features/*.feature",
+    video: false,
   },
 });

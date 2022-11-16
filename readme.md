@@ -13,3 +13,6 @@ Install project dependencies with: npm i
 ## 🐙 [Demo-page-for-testing](https://stately-caramel-5cb3b8.netlify.app/)
 
 ## 📖 Reference
+
+- [Cypress](https://www.cypress.io/)
+- [Cucumber](https://cucumber.io/)
