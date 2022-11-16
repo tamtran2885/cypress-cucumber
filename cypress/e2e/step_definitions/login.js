@@ -1,13 +1,12 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+const LoginPage = require("../../pageobjects/LoginPage");
 
 Given("I open login page", () => {
-  cy.visit("/login");
+  LoginPage.visitLoginPage();
 });
 
 When("I submit login", () => {
-  cy.get("#email").type("hoang@gmail.com");
-  cy.get("#password").type("123456");
-  cy.get("button[type='submit']").click();
+  LoginPage.submitLogin("hoang@gmail.com", "123456");
 });
 
 Then("I should see homepage", () => {
