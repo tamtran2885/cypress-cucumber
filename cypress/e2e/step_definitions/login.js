@@ -1,15 +1,33 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 const LoginPage = require("../../pageobjects/LoginPage");
 
-Given("I open login page", () => {
+Given("User is at login page", () => {
   LoginPage.visitLoginPage();
 });
 
-When("I submit login", () => {
-  LoginPage.submitLogin("hoang@gmail.com", "123456");
-});
+When(
+  "User fills email with {string}, password with {string}, and clicks on the login button",
+  (email, password) => {
+    LoginPage.submitLogin(email, password);
+  }
+);
 
-Then("I should see homepage", () => {
+When(
+  "User provides incorrect credentials, and clicks on the login button",
+  (table) => {
+    table.hashes().forEach((row) => {
+      cy.log(row.email);
+      cy.log(row.password);
+      LoginPage.submitLogin(row.email, row.password);
+    });
+  }
+);
+
+Then("User should see homepage", () => {
   // get element after login
   cy.get("#basic-nav-dropdown").should("have.attr", "href");
+});
+
+Then("The error message {string} is displayed", (errorMessage) => {
+  LoginPage.elements.errorMessage().should("have.text", errorMessage);
 });

@@ -21,6 +21,7 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
   pageLoadTimeout: 15000,
+  retries: 3,
   e2e: {
     setupNodeEvents,
     baseUrl: "https://stately-caramel-5cb3b8.netlify.app",

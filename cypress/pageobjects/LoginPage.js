@@ -3,6 +3,7 @@ class LoginPage {
     emailInput: () => cy.get("#email"),
     passwordInput: () => cy.get("#password"),
     loginBtn: () => cy.get("button[type='submit']"),
+    errorMessage: () => cy.get("[role='alert']"),
   };
 
   typeEmail(email) {
