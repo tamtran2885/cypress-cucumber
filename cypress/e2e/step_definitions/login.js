@@ -6,9 +6,9 @@ Given("User is at login page", () => {
 });
 
 When(
-  "User fills email with {string}, password with {string}, and clicks on the login button",
-  (email, password) => {
-    LoginPage.submitLogin(email, password);
+  "User fills username with {string}, password with {string}, and clicks on the login button",
+  (username, password) => {
+    LoginPage.submitLogin(username, password);
   }
 );
 
@@ -16,16 +16,15 @@ When(
   "User provides incorrect credentials, and clicks on the login button",
   (table) => {
     table.hashes().forEach((row) => {
-      cy.log(row.email);
+      cy.log(row.username);
       cy.log(row.password);
-      LoginPage.submitLogin(row.email, row.password);
+      LoginPage.submitLogin(row.username, row.password);
     });
   }
 );
 
 Then("User should see homepage", () => {
-  // get element after login
-  cy.get("#basic-nav-dropdown").should("have.attr", "href");
+  cy.url().should("include", "/inventory.html");
 });
 
 Then("The error message {string} is displayed", (errorMessage) => {

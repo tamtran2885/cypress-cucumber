@@ -15,7 +15,9 @@ npm run open
 npm run test
 ```
 
-## 🐙 [Demo-page-for-testing](https://stately-caramel-5cb3b8.netlify.app/)
+## 🐙 Demo page for testing
+
+- [Sauce-Demo](https://www.saucedemo.com/)
 
 ## 📖 Reference
 
